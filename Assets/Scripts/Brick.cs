@@ -4,10 +4,12 @@ using System.Collections;
 public class Brick : MonoBehaviour {
 	private int hits;
 	public int maxHits;
+	private LevelManager manager;
 
 	// Use this for initialization
 	void Start () {
 		hits = 0;
+		manager = GameObject.FindObjectOfType<LevelManager>();
 	}
 	
 	// Update is called once per frame
@@ -17,5 +19,10 @@ public class Brick : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision) {
 		hits++;
+		SimulateWin();
+	}
+
+	void SimulateWin() {
+		manager.LoadNextLevel();
 	}
 }
