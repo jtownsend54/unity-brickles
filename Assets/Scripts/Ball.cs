@@ -2,12 +2,12 @@
 using System.Collections;
 
 public class Ball : MonoBehaviour {
-	public Paddle paddle;
+	private Paddle paddle;
 	private bool isStarted = false;
 
 	// Use this for initialization
 	void Start () {
-		
+		paddle = GameObject.FindObjectOfType<Paddle>();
 	}
 	
 	// Update is called once per frame
@@ -20,7 +20,7 @@ public class Ball : MonoBehaviour {
 
 		if(Input.GetMouseButtonDown(0)) {
 			isStarted = true;
-			this.rigidbody2D.velocity = new Vector2(2f, 10f);
+			this.rigidbody2D.velocity = new Vector2(0f, 10f);
 		}
 	}
 }
