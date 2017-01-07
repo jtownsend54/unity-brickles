@@ -23,4 +23,13 @@ public class Ball : MonoBehaviour {
 			this.rigidbody2D.velocity = new Vector2(2f, 10f);
 		}
 	}
+
+	void OnCollisionEnter2D(Collision2D collision) {
+		if(!isStarted) {
+			return;
+		}
+
+		rigidbody2D.velocity += new Vector2(Random.Range(0f, 0.2f), Random.Range(0f, 0.2f));
+//		audio.Play();
+	}
 }
